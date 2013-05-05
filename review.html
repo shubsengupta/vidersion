@@ -14,30 +14,29 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/boilerplate.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/video-js.min.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body style="background-color:#efefef">
+    <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- CSS will be used to hide the text and turn this into a logo later -->
-        <h1 id="logo">Video Review</h1>
+        <h1 id="logo">Vidersion</h1>
 
-      <div class="container-block video-block">
+        <div class="container-block video-block">
             <video id="main-video" src="video/1.mp4" class="video-js" preload="auto" controls>
             </video>
         </div>
-
+<!--
         <div class="container-block annotation-block" id="annotation-container">
             <div class="annotation curr-annotation">
                 This is what I just typed - awesome
             </div>
         </div>
-
+-->
         <div class="container-block annotation-block first-block" id="annotation-container">
             <div class="annotation new-annotation">
                 Great song selection - love it!
@@ -46,6 +45,7 @@
 
         <form class="container-block comment-block" id="new-comment">
             <textarea id="comment-input" name="comment-input" autofocus rows="3" placeholder="Enter your annotation..." wrap></textarea>
+            <!--<button type="button" class="primary-button" id="comment-submit" name="comment-submit">Submit</button>-->
         </form>
         
          <div class="container-block annotation-block" id="annotation-container">
@@ -58,6 +58,7 @@
                 <span class="time-created">at <a href="#">3:40</a></span>
             </div>
         </div>
+
 
         <!-- This div is a container inside which each annotation block will be spawned via jQuery -->
 
