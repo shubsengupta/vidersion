@@ -37,12 +37,14 @@ $("#comment-input").keyup(function(e) {
 		});
 
 		//display new comment for 2 seconds
-		var newFootnotes = document.getElementById("green-block");
-		newFootnotes.style.visibility = 'visible';
-		newFootnotes.innerHTML = comment;
+		// Show the container
+		$("#green-container").show();
+		// Show the block
+		$("#green-block").show();
+		$("#green-block").html(comment);
 		setTimeout(function() {
-			newFootnotes.style.visibility = 'hidden';
-			newFootnotes("green_footnotes").innerHTML = '';
+			$("#green-container").hide();
+			$("#green-block").hide();
 		}, 2000); // 2000 ms = 2 s
 
 
@@ -58,6 +60,8 @@ $("#comment-input").keyup(function(e) {
 });
 
 function getServer() {
+	$("#green-block").hide();
+	$("#green-container").hide();
 	var popcorn = Popcorn("#main-video");
 	popcorn.on('timeupdate', function(number) {
 		if (Math.floor(this.currentTime()) > currentTime) {
@@ -87,7 +91,7 @@ function getServer() {
 				popcorn.footnote({
 					start: i,
 					end: i + 1,
-					target: "footnotes",
+					target: "blue-block",
 					text: globalData[i]["text"]
 				});
 			}
