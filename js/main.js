@@ -2,6 +2,7 @@ var firstkey = true;
 var startTime = 0;
 var currentTime = 0;
 var globalData;
+var lastBoldedIndex = -1;
 
 $('#comment-input').keydown(function(event) {
 	if (event.keyCode >= 65 && event.keyCode <= 90) { // if a letter pressed
@@ -93,6 +94,11 @@ function populatePageWithData(currentTime) {
 	}
 	if (boldedIndex < 0) {
 		boldedIndex = 0;
+	}
+	if (lastBoldedIndex === boldedIndex) {
+		return;
+	} else {
+		lastBoldedIndex = boldedIndex;
 	}
 
 	var content = "";
