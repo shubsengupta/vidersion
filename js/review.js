@@ -153,6 +153,8 @@ function populatePageWithData(currentTime) {
 
 	var content = "";
 	for (var i = 0; i < globalData.length; i++) {
+		console.log(globalData.length);
+		console.log("I shouldn't be");
 		var comment = globalData[i];
 		content += '<div class="annotation old-annotation">';
 		if (i === boldedIndex) {
