@@ -19,7 +19,7 @@ app.get("/get", function(request, response) {
 	getClient(function(client, done) {
 		client.query("SELECT * FROM comments", function(err, result) {
 			if (!err) {
-				if (request.callback) {
+				if (request.query.callback) {
 					response.jsonp(result.rows);
 				} else {
 					response.json(result.rows);
