@@ -85,8 +85,7 @@ html {
     color: #468847;
     background-color: #dff0d8;
     border-color: #d6e9c6;
-    border: solid 1px #468847;
-    
+    border: solid 1px #468847; 
 }
 
 .old-annotation {

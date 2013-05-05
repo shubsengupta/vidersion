@@ -19,7 +19,7 @@ app.get("/get", function(request, response) {
 	getClient(function(client, done) {
 		client.query("SELECT * FROM comments", function(err, result) {
 			if (!err) {
-				if (request.callback) {
+				if (request.query.callback) {
 					response.jsonp(result.rows);
 				} else {
 					response.json(result.rows);
@@ -36,11 +36,12 @@ app.get("/get", function(request, response) {
 
 app.get("/put", function(request, response) {
 	var id = request.query.video_id,
-		timecode = request.query.timecode,
+		start_t = request.query.start_t,
+		end_t = request.query.end_t,
 		text = request.query.text,
 		state = request.query.state;
 	getClient(function(client, done) {
-		client.query("INSERT INTO comments (video_id, timecode, text, state) VALUES ($1, $2, $3, $4);", [id, timecode, text, state], function(err, result) {
+		client.query("INSERT INTO comments (video_id, start_timecode, end_timecode, text, state) VALUES ($1, $2, $3, $4, $5);", [id, start_t, end_t, text, state], function(err, result) {
 			if (!err) {
 				response.json({
 					"success": "You did it!"
