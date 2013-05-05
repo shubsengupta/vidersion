@@ -80,6 +80,14 @@ html {
     background-color: #fff;
 }
 
+.new-annotation {
+    
+}
+
+.old-annotation {
+    opacity: 0.7;
+}
+
 .time-created {
     color: #aaa;
     font-size: 75%;
