@@ -56,17 +56,14 @@ $("#comment-input").keyup(function(e) {
 
 		//TODO:add to annotation-container
 
-		//reset stuff
-		startTime = 0;
-		document.getElementById("comment-input").value = '';
-		firstkey = true;
+		var startTimeAjax = startTime;
 
 		$.ajax({
 			url: "http://vidersion.herokuapp.com/put",
 			type: "GET",
 			dataType: 'jsonp',
 			data: {
-				start_t: startTime,
+				start_t: Math.round(startTimeAjax),
 				end_t: Math.floor(document.getElementById("main-video").currentTime),
 				video_id: 1,
 				text: comment,
@@ -80,6 +77,12 @@ $("#comment-input").keyup(function(e) {
 				console.log("success!");
 			}
 		});
+
+		//reset stuff
+		startTime = 0;
+		document.getElementById("comment-input").value = '';
+		firstkey = true;
+
 	}
 });
 
