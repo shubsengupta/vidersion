@@ -260,6 +260,7 @@ function deleteComment(index) {
 	});
 
 	$("#trashme").hide();
+	globalData[index].state = "archived";
 	populatePageWithData();
 }
 
