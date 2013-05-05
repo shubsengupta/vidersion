@@ -41,20 +41,40 @@ app.get("/put", function(request, response) {
 		start_t = request.query.start_t,
 		end_t = request.query.end_t,
 		text = request.query.text,
-		state = request.query.state;
+		state = request.query.state,
+		comment_id = request.query.comment_id;
 	getClient(function(client, done) {
-		client.query("INSERT INTO comments (video_id, start_timecode, end_timecode, text, state) VALUES ($1, $2, $3, $4, $5);", [id, start_t, end_t, text, state], function(err, result) {
-			if (!err) {
-				response.json({
-					"success": "You did it!"
-				});
-			} else {
-				response.json({
-					"error": "You suck!"
-				});
-			}
-			done();
-		});
+
+		if (comment_id) {
+			client.query("UPDATE comments SET state = $1 WHERE comment_id = $2", [state, comment_id], function(err, result) {
+				console.log(err);
+				if (!err) {
+					response.json({
+						"success": "You did it!"
+					});
+				} else {
+					response.json({
+						"error": "You suck!"
+					});
+				}
+				done();
+			});
+		} else {
+			client.query("INSERT INTO comments (video_id, start_timecode, end_timecode, text, state) VALUES ($1, $2, $3, $4, $5);", [id, start_t, end_t, text, state], function(err, result) {
+				console.log(err);
+				if (!err) {
+					response.json({
+						"success": "You did it!"
+					});
+				} else {
+					response.json({
+						"error": "You suck!"
+					});
+				}
+				done();
+			});
+		}
+
 	});
 });
 

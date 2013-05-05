@@ -56,6 +56,26 @@ $("#comment-input").keyup(function(e) {
 		startTime = 0;
 		document.getElementById("comment-input").value = '';
 		firstkey = true;
+
+
+		$.ajax({
+			url: "http://vidersion.herokuapp.com/put",
+			type: "GET",
+			dataType: 'jsonp',
+			data: {
+				start_t: startTime,
+				end_t: document.getElementById("main-video").currentTime,
+				video_id: 1,
+				text: comment
+			},
+			crossDomain: true,
+			error: function(xhr, status, error) {
+				console.log("error!");
+			},
+			success: function(data) {
+				console.log("success!");
+			}
+		});
 	}
 });
 
