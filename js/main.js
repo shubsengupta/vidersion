@@ -172,6 +172,9 @@ function populatePageWithData(currentTime) {
 		if (comment.text == "" || comment.text == '' || comment.text == null) {
 			continue;
 		}
+		if (comment.state == "archived") {
+			continue;
+		}
 		if (i === boldedIndex) {
 			content += '<div class="annotation old-annotation" style="opacity: 1.0 !important;">';
 			content += '<strong>';
