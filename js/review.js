@@ -170,7 +170,7 @@ function populatePageWithData(currentTime) {
 		} else if (comment.state == 'reviewed') {
 			content += '<span class="comment-controls">&nbsp;<i class="icon-check" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
 		}
-		content += '<i class="icon-trash" id="trash" onclick="deleteComment(' + i + '"></i></span>';
+		content += '<i class="icon-trash" id="trash" onclick="deleteComment(' + i + ');"></i></span>';
 		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
 		content += 'at ';
 		content += '<a>';
