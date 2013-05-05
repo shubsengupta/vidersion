@@ -259,9 +259,7 @@ function deleteComment(index) {
 		}
 	});
 
-	$("#trashme").hide();
-	globalData[index].state = "archived";
-	populatePageWithData();
+	$("#trashme" + index).hide();
 }
 
 function seekTo(time) {
