@@ -17,7 +17,7 @@ app.get("/", function(request, response) {
 
 app.get("/get", function(request, response) {
 	getClient(function(client, done) {
-		client.query("SELECT * FROM comments", function(err, result) {
+		client.query("SELECT * FROM comments WHERE video_id = $1", [request.query.id], function(err, result) {
 			console.log(err);
 			console.log(result);
 			if (!err) {
