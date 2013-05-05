@@ -112,6 +112,7 @@ video {
     font-size: 75%;
     vertical-align: bottom;
     float: right;
+    cursor: hand; cursor: pointer; 
 }
 
 .time-created > a {

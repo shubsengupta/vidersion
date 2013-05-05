@@ -136,9 +136,9 @@ function populatePageWithData(currentTime) {
 			content += "<strong>";
 		}
 		content += comment.text;
-		content += '<span class="time-created">';
+		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
 		content += 'at ';
-		content += '<a href="#">';
+		content += '<a>';
 		if (comment.start_timecode > 59) {
 			content += Math.floor(comment.start_timecode / 60);
 			content += ":";
@@ -155,4 +155,8 @@ function populatePageWithData(currentTime) {
 	}
 	$("#annotation-container").empty();
 	$("#annotation-container").append(content);
+}
+
+function seekTo(time) {
+	var endTime = document.getElementById("main-video").currentTime = time;
 }
