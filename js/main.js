@@ -31,11 +31,10 @@ $("#comment-input").keyup(function(e) {
 		popcorn.code({
 			start: startTime,
 			end: endTime,
-			onStart:function(options){
-				console.log(options);
+			onStart: function(options) {
 				document.getElementById("blue-block").innerHTML = comment;
 			},
-			onEnd: function(options){
+			onEnd: function(options) {
 				document.getElementById("blue-block").innerHTML = '';
 			}
 		});
@@ -49,8 +48,7 @@ $("#comment-input").keyup(function(e) {
 		$("#green-block").show();
 		$("#green-block").html(comment);
 		setTimeout(function() {
-			$("#green-container").hide();
-			$("#green-block").hide();
+			// getServer();
 		}, 2000); // 2000 ms = 2 s
 
 
@@ -63,16 +61,16 @@ $("#comment-input").keyup(function(e) {
 		document.getElementById("comment-input").value = '';
 		firstkey = true;
 
-
 		$.ajax({
 			url: "http://vidersion.herokuapp.com/put",
 			type: "GET",
 			dataType: 'jsonp',
 			data: {
 				start_t: startTime,
-				end_t: document.getElementById("main-video").currentTime,
+				end_t: Math.floor(document.getElementById("main-video").currentTime),
 				video_id: 1,
-				text: comment
+				text: comment,
+				state: 'new'
 			},
 			crossDomain: true,
 			error: function(xhr, status, error) {
@@ -114,18 +112,17 @@ function getServer() {
 			var popcorn = Popcorn("#main-video");
 			for (var i = 0; i < globalData.length; i++) {
 				popcorn.code({
-					start:globalData[i]["start_timecode"],
-					end:globalData[i]["end_timecode"],
+					start: globalData[i]["start_timecode"],
+					end: globalData[i]["end_timecode"],
 					ie: i,
-					onStart:function(options){
+					onStart: function(options) {
 						console.log(options);
 						document.getElementById("blue-block").innerHTML = globalData[options.ie]["text"];
 					},
-					onEnd: function(options){
+					onEnd: function(options) {
 						document.getElementById("blue-block").innerHTML = '';
 					}
 				});
-				
 			}
 		}
 	});

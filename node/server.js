@@ -18,8 +18,6 @@ app.get("/", function(request, response) {
 app.get("/get", function(request, response) {
 	getClient(function(client, done) {
 		client.query("SELECT * FROM comments WHERE video_id = $1", [request.query.id], function(err, result) {
-			console.log(err);
-			console.log(result);
 			if (!err) {
 				if (request.query.callback) {
 					response.jsonp(result.rows);
@@ -42,7 +40,11 @@ app.get("/put", function(request, response) {
 		end_t = request.query.end_t,
 		text = request.query.text,
 		state = request.query.state,
+		comment_id;
+	if (request.query.comment_id) {
 		comment_id = request.query.comment_id;
+	}
+
 	getClient(function(client, done) {
 
 		if (comment_id) {
@@ -60,6 +62,7 @@ app.get("/put", function(request, response) {
 				done();
 			});
 		} else {
+			console.log("no comment_id");
 			client.query("INSERT INTO comments (video_id, start_timecode, end_timecode, text, state) VALUES ($1, $2, $3, $4, $5);", [id, start_t, end_t, text, state], function(err, result) {
 				console.log(err);
 				if (!err) {
