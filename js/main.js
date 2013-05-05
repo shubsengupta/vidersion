@@ -166,9 +166,12 @@ function populatePageWithData(currentTime) {
 	var content = "";
 	for (var i = 0; i < globalData.length; i++) {
 		var comment = globalData[i];
-		content += '<div class="annotation old-annotation">';
+
 		if (i === boldedIndex) {
-			content += "<strong>";
+			content += '<div class="annotation old-annotation" style="opacity: 1.0 !important;">';
+			content += '<strong>';
+		} else {
+			content += '<div class="annotation old-annotation">';
 		}
 		content += comment.text;
 		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
