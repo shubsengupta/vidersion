@@ -28,13 +28,19 @@ $("#comment-input").keyup(function(e) {
 		//TODO: need to fix.
 		//add comment to popcorn instance
 		var popcorn = Popcorn("#main-video");
-
-		popcorn.footnote({
-			start: 0,
-			end: 5,
-			target: "footnotes",
-			text: comment
+		popcorn.code({
+			start: startTime,
+			end: endTime,
+			onStart:function(options){
+				console.log(options);
+				document.getElementById("blue-block").innerHTML = comment;
+			},
+			onEnd: function(options){
+				document.getElementById("blue-block").innerHTML = '';
+			}
 		});
+
+
 
 		//display new comment for 2 seconds
 		// Show the container
@@ -107,13 +113,19 @@ function getServer() {
 			//add to popcorn
 			var popcorn = Popcorn("#main-video");
 			for (var i = 0; i < globalData.length; i++) {
-				//add to popcorn instance
-				popcorn.footnote({
-					start: i,
-					end: i + 1,
-					target: "blue-block",
-					text: globalData[i]["text"]
+				popcorn.code({
+					start:globalData[i]["start_timecode"],
+					end:globalData[i]["end_timecode"],
+					ie: i,
+					onStart:function(options){
+						console.log(options);
+						document.getElementById("blue-block").innerHTML = globalData[options.ie]["text"];
+					},
+					onEnd: function(options){
+						document.getElementById("blue-block").innerHTML = '';
+					}
 				});
+				
 			}
 		}
 	});
