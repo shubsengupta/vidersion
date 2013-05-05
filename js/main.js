@@ -48,7 +48,7 @@ $("#comment-input").keyup(function(e) {
 		$("#green-block").show();
 		$("#green-block").html(comment);
 		setTimeout(function() {
-			// getServer();
+			getServer();
 		}, 2000); // 2000 ms = 2 s
 
 
