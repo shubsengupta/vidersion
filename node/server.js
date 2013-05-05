@@ -18,6 +18,8 @@ app.get("/", function(request, response) {
 app.get("/get", function(request, response) {
 	getClient(function(client, done) {
 		client.query("SELECT * FROM comments", function(err, result) {
+			console.log(err);
+			console.log(result);
 			if (!err) {
 				if (request.query.callback) {
 					response.jsonp(result.rows);
@@ -29,7 +31,7 @@ app.get("/get", function(request, response) {
 					"error": "You suck!"
 				});
 			}
-
+			done();
 		});
 	});
 });
