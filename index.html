@@ -32,17 +32,18 @@
             </video>
         </div>
 
-        <form class="container-block comment-block" id="new-comment">
-            <textarea id="comment-input" name="comment-input" autofocus rows="3" placeholder="Enter your annotation..." wrap></textarea>
-            <button type="button" class="primary-button" id="comment-submit" name="comment-submit">Submit</button>
-        </form>
-
-        <!-- This div is a container inside which each annotation block will be spawned via jQuery -->
         <div class="container-block annotation-block" id="annotation-container">
             <div class="annotation new-annotation">
                 The quick brown fox jumps over a lazy dog
-                <span class="time-created">at <a href="#">3:40</a></span>
             </div>
+        </div>
+
+        <form class="container-block comment-block" id="new-comment">
+            <textarea id="comment-input" name="comment-input" autofocus rows="3" placeholder="Enter your annotation..." wrap></textarea>
+            <!--<button type="button" class="primary-button" id="comment-submit" name="comment-submit">Submit</button>-->
+        </form>
+        
+         <div class="container-block annotation-block" id="annotation-container">
             <div class="annotation old-annotation">
                 Amazingly few discotheques provide jukeboxes
                 <span class="time-created">at <a href="#">3:40</a></span>
@@ -52,6 +53,10 @@
                 <span class="time-created">at <a href="#">3:40</a></span>
             </div>
         </div>
+
+
+        <!-- This div is a container inside which each annotation block will be spawned via jQuery -->
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>

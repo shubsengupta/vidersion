@@ -7,29 +7,29 @@ html {
 #logo {
     font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     font-size: 32pt;
     text-shadow: 0 0 2px #fff;
 }
 
 .video-block {
-    margin: 15px 10% 0 10%;
-    border: solid 1px #000; /*testing*/
+    margin: 10px 10% 0 10%;
+    border: solid 1px #000;
 }
 
 #main-video {
     width: 100%;
-    height: auto;
+    height: 460px;
 }
 
 .container-block {
     display: block;
-    min-height: 100px;
     margin: 15px 10%;
 }
 
 .comment-block {
     background-color: #222;
+    padding:10px;
 }
 
 .primary-button {
@@ -62,10 +62,10 @@ html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 10px;
-    padding: 4px 5px;
     width: 100%;
-    float: left;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .annotation-block {
@@ -78,6 +78,19 @@ html {
     padding: 10px;
     margin: 15px 0;
     background-color: #fff;
+}
+
+.new-annotation {
+    margin:-10px 0 -5px 0;
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    border: solid 1px #468847;
+    
+}
+
+.old-annotation {
+    opacity: 0.6;
 }
 
 .time-created {
