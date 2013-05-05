@@ -43,12 +43,14 @@ $("#comment-input").keyup(function(e) {
 
 
 		//display new comment for 2 seconds
-		var newFootnotes = document.getElementById("green-block");
-		newFootnotes.style.visibility = 'visible';
-		newFootnotes.innerHTML = comment;
+		// Show the container
+		$("#green-container").show();
+		// Show the block
+		$("#green-block").show();
+		$("#green-block").html(comment);
 		setTimeout(function() {
-			newFootnotes.style.visibility = 'hidden';
-			newFootnotes.innerHTML = '';
+			$("#green-container").hide();
+			$("#green-block").hide();
 		}, 2000); // 2000 ms = 2 s
 
 
@@ -64,6 +66,8 @@ $("#comment-input").keyup(function(e) {
 });
 
 function getServer() {
+	$("#green-block").hide();
+	$("#green-container").hide();
 	var popcorn = Popcorn("#main-video");
 	popcorn.on('timeupdate', function(number) {
 		if (Math.floor(this.currentTime()) > currentTime) {
@@ -144,9 +148,9 @@ function populatePageWithData(currentTime) {
 			content += "<strong>";
 		}
 		content += comment.text;
-		content += '<span class="time-created">';
+		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
 		content += 'at ';
-		content += '<a href="#">';
+		content += '<a>';
 		if (comment.start_timecode > 59) {
 			content += Math.floor(comment.start_timecode / 60);
 			content += ":";
@@ -163,4 +167,8 @@ function populatePageWithData(currentTime) {
 	}
 	$("#annotation-container").empty();
 	$("#annotation-container").append(content);
+}
+
+function seekTo(time) {
+	var endTime = document.getElementById("main-video").currentTime = time;
 }

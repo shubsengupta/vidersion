@@ -14,54 +14,45 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/boilerplate.css">
-        <link rel="stylesheet" href="css/video-js.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/style-review.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body style="background-color:#efefef">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- CSS will be used to hide the text and turn this into a logo later -->
-        <h1 id="logo">Vidersion</h1>
+        <h1 id="logo">Video Review</h1>
+        <br>
 
-        <div class="container-block video-block">
-            <video id="main-video" src="video/1.mp4" class="video-js" preload="auto" controls>
-            </video>
-        </div>
-<!--
-        <div class="container-block annotation-block" id="annotation-container">
-            <div class="annotation curr-annotation">
-                This is what I just typed - awesome
-            </div>
-        </div>
--->
-        <div class="container-block annotation-block first-block" id="annotation-container">
-            <div class="annotation new-annotation">
-                Great song selection - love it!
-            </div>
-        </div>
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <video class="full" id="main-video" src="video/1.mp4" preload="auto" controls></video>
+                </div>
 
-        <form class="container-block comment-block" id="new-comment">
-            <textarea id="comment-input" name="comment-input" autofocus rows="3" placeholder="Enter your annotation..." wrap></textarea>
-            <!--<button type="button" class="primary-button" id="comment-submit" name="comment-submit">Submit</button>-->
-        </form>
-        
-         <div class="container-block annotation-block" id="annotation-container">
-            <div class="annotation old-annotation">
-                Jim is speaking too quietly here
-                <span class="time-created">at <a href="#">0:28</a></span>
-            </div>
-            <div class="annotation old-annotation">
-                Did not like the camera switch - stick to angle A
-                <span class="time-created">at <a href="#">3:40</a></span>
+                <div class="span6" style="height:321px; overflow:scroll;" id="annotation-container">
+                    <div class="annotation old-annotation">
+                        Jim is speaking too quietly here
+                        <span class="comment-controls">&nbsp;<i class="icon-check"></i> | <i class="icon-trash"></i></span>
+                        <span class="time-created">at <a href="#">0:28</a></span>
+                    </div>
+                    <div class="annotation old-annotation">
+                        Did not like the camera switch - stick to angle A
+                        <span class="comment-controls">&nbsp;<i class="icon-check"></i> | <i class="icon-trash"></i></span>
+                        <span class="time-created">at <a href="#">3:40</a></span>
+                    </div>
+                </div>
             </div>
         </div>
-
 
         <!-- This div is a container inside which each annotation block will be spawned via jQuery -->
-
+        <br>
+        <div id="footer" style="text-align:center;"><a href="index.html"><i class="icon-home"></i></a>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>

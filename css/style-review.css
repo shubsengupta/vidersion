@@ -29,7 +29,7 @@ html {
 }
 
 video {
-    max-width:75%;
+    max-width:100%;
     height:auto;
 }
 
@@ -104,7 +104,14 @@ video {
 }
 
 .old-annotation {
-    opacity: 0.6;
+    opacity: 1.0;
+    margin-top: 0px;
+}
+
+.comment-controls {
+    font-size: 100%;
+    vertical-align: bottom;
+    float: right;
 }
 
 .time-created {
@@ -112,7 +119,6 @@ video {
     font-size: 75%;
     vertical-align: bottom;
     float: right;
-    cursor: hand; cursor: pointer; 
 }
 
 .time-created > a {
