@@ -12,6 +12,9 @@ html {
     text-shadow: 0 0 2px #fff;
 }
 
+.icon-check, .icon-ok, .icon-trash {
+    cursor: hand; cursor: pointer; 
+}
 .video-block {
     margin: 10px 10% 0 10%;
     background-color: #000;
