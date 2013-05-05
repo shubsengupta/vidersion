@@ -36,6 +36,16 @@ $("#comment-input").keyup(function(e) {
 			text: comment
 		});
 
+		//display new comment for 2 seconds
+	   	var newFootnotes = document.getElementById("green_footnotes");
+	   	newFootnotes.style.visibility='visible';
+	   	newFootnotes.innerHTML = comment;
+	   	setTimeout(function(){
+	   		newFootnotes.style.visibility = 'hidden';
+	   		newFootnotes("green_footnotes").innerHTML = '';
+	   	},2000); // 2000 ms = 2 s
+
+
 		//TODO:add comment to server
 
 		//TODO:add to annotation-container
@@ -70,11 +80,24 @@ function getServer() {
 		success: function(data) {
 			globalData = data;
 			populatePageWithData();
+			//add to popcorn
+			var popcorn = Popcorn( "#main-video" );
+			for (var i = 0; i<globalData.length;i++) {
+				//add to popcorn instance
+				popcorn.footnote({
+		     	 start: i,
+		     	 end: i+1,
+		     	 target: "footnotes",
+		    	 text: globalData[i]["text"]
+		   	  });
+			}
 		}
 	});
 }
 
 function populatePageWithData(currentTime) {
+
+	//add to annotation list
 	globalData.sort(function(a, b) {
 		if (a.start_timecode < b.start_timecode) {
 			return -1;
