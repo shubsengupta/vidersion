@@ -28,10 +28,10 @@ $("#comment-input").keyup(function(e) {
 			start: startTime,
 			end: endTime,
 			onStart: function(options) {
-				document.getElementById("blue-block").innerHTML = comment;
+				$("#blue-block").html(comment);
 			},
 			onEnd: function(options) {
-				document.getElementById("blue-block").innerHTML = '';
+				$("#blue-block").hide();
 			}
 		});
 
@@ -88,6 +88,8 @@ $("#comment-input").keyup(function(e) {
 function getServer() {
 	$("#green-block").hide();
 	$("#green-container").hide();
+	$("#blue-container").hide();
+	$("#blue-block").hide();
 	var popcorn = Popcorn("#main-video");
 	popcorn.on('timeupdate', function(number) {
 		if (Math.floor(this.currentTime()) > currentTime) {
