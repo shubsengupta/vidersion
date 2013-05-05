@@ -112,6 +112,16 @@ video {
     border: solid 1px #333; 
 }
 
+.old-annotation-blue {
+    background-color: #d9edf7 !important;
+    opacity: 1.0 !important;
+}
+
+.old-annotation-green {
+    background-color: #dff0d8 !important;
+    opacity: 1.0 !important;
+}
+
 .curr-annotation {
     margin:-10px 0 -5px 0;
     color: #468847;

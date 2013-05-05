@@ -160,7 +160,12 @@ function populatePageWithData(currentTime) {
 		if (comment.state == "archived") {
 			continue;
 		}
-		content += '<div class="annotation old-annotation" id="trashme' + i + '">';
+		if (comment.state == "new") {
+			content += '<div class="annotation old-annotation old-annotation-blue" id="trashme' + i + '">';
+		} else if (comment.state == "reviewed") {
+			content += '<div class="annotation old-annotation old-annotation-green" id="trashme' + i + '">';
+		}
+
 		if (i === boldedIndex) {
 			content += "<strong>";
 		}

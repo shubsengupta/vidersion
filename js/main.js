@@ -176,10 +176,20 @@ function populatePageWithData(currentTime) {
 			continue;
 		}
 		if (i === boldedIndex) {
-			content += '<div class="annotation old-annotation" style="opacity: 1.0 !important;">';
-			content += '<strong>';
+			if (comment.state == "new") {
+				content += '<div class="annotation old-annotation old-annotation-blue" style="opacity: 1.0 !important;">';
+				content += '<strong>';
+			} else if (comment.state == "reviewed") {
+				content += '<div class="annotation old-annotation old-annotation-green" style="opacity: 1.0 !important;">';
+				content += '<strong>';
+			}
 		} else {
-			content += '<div class="annotation old-annotation">';
+
+			if (comment.state == "new") {
+				content += '<div class="annotation old-annotation old-annotation-blue">';
+			} else if (comment.state == "reviewed") {
+				content += '<div class="annotation old-annotation old-annotation-green">';
+			}
 		}
 		content += comment.text;
 		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
