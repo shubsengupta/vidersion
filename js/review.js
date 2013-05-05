@@ -21,10 +21,6 @@ $("#comment-input").keyup(function(e) {
 		var comment = document.getElementById("comment-input").value;
 		var endTime = document.getElementById("main-video").currentTime;
 
-		console.log("Adding comment:" + comment);
-		console.log("with StartTime:" + startTime);
-		console.log("and endTime:" + endTime);
-
 		//TODO: need to fix.
 		//add comment to popcorn instance
 		var popcorn = Popcorn("#main-video");
@@ -115,7 +111,6 @@ function getServer() {
 					end: globalData[i]["end_timecode"],
 					ie: i,
 					onStart: function(options) {
-						console.log(options);
 						document.getElementById("blue-block").innerHTML = globalData[options.ie]["text"];
 					},
 					onEnd: function(options) {
@@ -165,7 +160,7 @@ function populatePageWithData(currentTime) {
 		}
 		content += comment.text;
 		if (comment.state == 'new') {
-			content += '<span class="comment-controls">&nbsp;<i class="icon-ok" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
+			content += '<span class="comment-controls">&nbsp;<i class="icon-check-empty" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
 		} else if (comment.state == 'archived') {
 			content += '<span class="comment-controls">&nbsp;<i class="icon-check" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
 		}
@@ -222,11 +217,11 @@ function markRead(index) {
 	});
 
 	if (comment.state == "new") {
-		$('#read' + index).removeClass("icon-ok");
+		$('#read' + index).removeClass("icon-check-empty");
 		$('#read' + index).addClass("icon-check");
 	} else {
 		$('#read' + index).removeClass("icon-check");
-		$('#read' + index).addClass("icon-ok");
+		$('#read' + index).addClass("icon-check-empty");
 	}
 	comment.state = newState;
 

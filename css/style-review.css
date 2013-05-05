@@ -4,12 +4,21 @@ html {
     background-color: #efefef;
 }
 
-#logo {
-    font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
-    text-align: center;
-    margin: 5px;
-    font-size: 32pt;
-    text-shadow: 0 0 2px #fff;
+#logo img{
+    width:200px;
+}
+
+#homeicon {
+    color: #666666;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 4em;
+}
+
+#homeicon a {
+    text-decoration: none;
+    color: #666666;
 }
 
 .icon-check, .icon-ok, .icon-trash {

@@ -21,10 +21,6 @@ $("#comment-input").keyup(function(e) {
 		var comment = document.getElementById("comment-input").value;
 		var endTime = document.getElementById("main-video").currentTime;
 
-		console.log("Adding comment:" + comment);
-		console.log("with StartTime:" + startTime);
-		console.log("and endTime:" + endTime);
-
 		//TODO: need to fix.
 		//add comment to popcorn instance
 		var popcorn = Popcorn("#main-video");
@@ -122,11 +118,15 @@ function getServer() {
 					end: globalData[i]["end_timecode"],
 					ie: i,
 					onStart: function(options) {
-						console.log(options);
-						document.getElementById("blue-block").innerHTML = globalData[options.ie]["text"];
+						$("#blue-block").show();
+						$("#blue-container").show();
+						$("#blue-block").html(globalData[options.ie]["text"]);
+						// document.getElementById("blue-block").innerHTML = globalData[options.ie]["text"];
 					},
 					onEnd: function(options) {
-						document.getElementById("blue-block").innerHTML = '';
+						$("#blue-block").hide();
+						$("#blue-container").hide();
+						// document.getElementById("blue-block").innerHTML = '';
 					}
 				});
 			}

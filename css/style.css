@@ -8,8 +8,17 @@ html {
     width:200px;
 }
 
-#blah {
-    color: #ff0;
+#homeicon {
+    color: #666666;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 4em;
+}
+
+#homeicon a {
+    text-decoration: none;
+    color: #666666;
 }
 
 #menu-nav i{
