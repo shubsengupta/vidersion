@@ -260,6 +260,7 @@ function deleteComment(index) {
 	});
 
 	$("#trashme").hide();
+	populatePageWithData();
 }
 
 function seekTo(time) {
