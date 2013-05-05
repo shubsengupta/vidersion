@@ -4,12 +4,19 @@ html {
     background-color: #efefef;
 }
 
-#logo {
-    font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
-    text-align: center;
-    margin: 5px;
-    font-size: 32pt;
-    text-shadow: 0 0 2px #fff;
+#logo img{
+    width:200px;
+}
+
+#blah {
+    color: #ff0;
+}
+
+#menu-nav i{
+    color: #0fc9f2;
+    font-size: 44px;
+    text-align: right;
+    display: block;
 }
 
 .video-block {

@@ -25,11 +25,14 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- CSS will be used to hide the text and turn this into a logo later -->
-        <h1 id="logo">Video Review</h1>
+        <div id="logo"><img src="./img/Wide.png"></img><div id="blah"><i class="icon-home"></i></div></div>
+
 
          <div class="container-block video-block">
-            <video id="main-video" src="video/1.mp4" class="video-js" preload="auto" controls>
+            <video id="main-video" class="video-js" preload="auto" controls>
+                <source src="http://movies.apple.com/media/us/html5/showcase/2011/demos/apple-html5-demo-tron-us_848x352.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="/105/media/us/html5/showcase/2011/demos/apple-html5-demo-tron-us_848x352.webm" type='video/webm; codecs="vp8, vorbis"'>
+                <source src="http://movies.apple.com/media/us/html5/showcase/2010/demos/apple-html5-demo-tron_legacy-us-20100601_r848-2cie.mov">
             </video>
         </div>
 
