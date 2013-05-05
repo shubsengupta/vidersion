@@ -29,8 +29,8 @@ $("#comment-input").keyup(function(e) {
 		//add comment to popcorn instance
 		var popcorn = Popcorn("#main-video");
 		popcorn.code({
-			start: 8,
-			end: 10,
+			start: startTime,
+			end: endTime,
 			onStart:function(options){
 				console.log(options);
 				document.getElementById("blue-block").innerHTML = comment;
@@ -94,8 +94,8 @@ function getServer() {
 			var popcorn = Popcorn("#main-video");
 			for (var i = 0; i < globalData.length; i++) {
 				popcorn.code({
-					start:i,
-					end:i+2,
+					start:globalData[i]["start_timecode"],
+					end:globalData[i]["end_timecode"],
 					ie: i,
 					onStart:function(options){
 						console.log(options);
