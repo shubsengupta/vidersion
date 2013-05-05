@@ -153,20 +153,24 @@ function populatePageWithData(currentTime) {
 
 	var content = "";
 	for (var i = 0; i < globalData.length; i++) {
-		console.log(globalData.length);
-		console.log("I shouldn't be");
 		var comment = globalData[i];
-		content += '<div class="annotation old-annotation">';
+		if (comment.text == "" || comment.text == '' || comment.text == null) {
+			continue;
+		}
+		if (comment.state == "archived") {
+			continue;
+		}
+		content += '<div class="annotation old-annotation" id="trashme' + i + '">';
 		if (i === boldedIndex) {
 			content += "<strong>";
 		}
 		content += comment.text;
 		if (comment.state == 'new') {
 			content += '<span class="comment-controls">&nbsp;<i class="icon-check-empty" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
-		} else if (comment.state == 'archived') {
+		} else if (comment.state == 'reviewed') {
 			content += '<span class="comment-controls">&nbsp;<i class="icon-check" id="read' + i + '" onclick="markRead(' + i + ')"></i> | ';
 		}
-		content += '<i class="icon-trash" id="trash"></i></span>';
+		content += '<i class="icon-trash" id="trash" onclick="deleteComment(' + i + '"></i></span>';
 		content += '<span class="time-created" onclick="seekTo(' + comment.start_timecode + ');">';
 		content += 'at ';
 		content += '<a>';
@@ -192,8 +196,8 @@ function markRead(index) {
 	var comment = globalData[index];
 	var newState;
 	if (comment.state == "new") {
-		newState = "archived";
-	} else if (comment.state == "archived") {
+		newState = "reviewed";
+	} else if (comment.state == "reviewed") {
 		newState = "new";
 	}
 
@@ -227,6 +231,35 @@ function markRead(index) {
 	}
 	comment.state = newState;
 
+}
+
+function deleteComment(index) {
+	var comment = globalData[index];
+	var newState;
+	newState = "archived";
+
+	$.ajax({
+		url: "http://vidersion.herokuapp.com/put",
+		type: "GET",
+		dataType: 'jsonp',
+		data: {
+			start_t: startTime,
+			end_t: Math.floor(document.getElementById("main-video").currentTime),
+			video_id: 1,
+			text: comment,
+			state: newState,
+			comment_id: comment.comment_id
+		},
+		crossDomain: true,
+		error: function(xhr, status, error) {
+			console.log("error!");
+		},
+		success: function(data) {
+			console.log("success!");
+		}
+	});
+
+	$("#trashme").hide();
 }
 
 function seekTo(time) {

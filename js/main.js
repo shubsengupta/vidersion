@@ -169,6 +169,9 @@ function populatePageWithData(currentTime) {
 	for (var i = 0; i < globalData.length; i++) {
 		var comment = globalData[i];
 
+		if (comment.text == "" || comment.text == '' || comment.text == null) {
+			continue;
+		}
 		if (i === boldedIndex) {
 			content += '<div class="annotation old-annotation" style="opacity: 1.0 !important;">';
 			content += '<strong>';
