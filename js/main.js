@@ -37,13 +37,13 @@ $("#comment-input").keyup(function(e) {
 		});
 
 		//display new comment for 2 seconds
-	   	var newFootnotes = document.getElementById("green_footnotes");
-	   	newFootnotes.style.visibility='visible';
-	   	newFootnotes.innerHTML = comment;
-	   	setTimeout(function(){
-	   		newFootnotes.style.visibility = 'hidden';
-	   		newFootnotes("green_footnotes").innerHTML = '';
-	   	},2000); // 2000 ms = 2 s
+		var newFootnotes = document.getElementById("green-block");
+		newFootnotes.style.visibility = 'visible';
+		newFootnotes.innerHTML = comment;
+		setTimeout(function() {
+			newFootnotes.style.visibility = 'hidden';
+			newFootnotes("green_footnotes").innerHTML = '';
+		}, 2000); // 2000 ms = 2 s
 
 
 		//TODO:add comment to server
@@ -81,15 +81,15 @@ function getServer() {
 			globalData = data;
 			populatePageWithData();
 			//add to popcorn
-			var popcorn = Popcorn( "#main-video" );
-			for (var i = 0; i<globalData.length;i++) {
+			var popcorn = Popcorn("#main-video");
+			for (var i = 0; i < globalData.length; i++) {
 				//add to popcorn instance
 				popcorn.footnote({
-		     	 start: i,
-		     	 end: i+1,
-		     	 target: "footnotes",
-		    	 text: globalData[i]["text"]
-		   	  });
+					start: i,
+					end: i + 1,
+					target: "footnotes",
+					text: globalData[i]["text"]
+				});
 			}
 		}
 	});

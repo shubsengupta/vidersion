@@ -27,50 +27,38 @@
         <!-- CSS will be used to hide the text and turn this into a logo later -->
         <h1 id="logo">Video Review</h1>
 
-      <div class="container-block video-block">
+         <div class="container-block video-block">
             <video id="main-video" src="video/1.mp4" class="video-js" preload="auto" controls>
             </video>
         </div>
 
-        <div class="container-block annotation-block" id="annotation-container">
-            <div class="annotation curr-annotation">
+        <div class="container-block annotation-block">
+            <div class="annotation curr-annotation" id="green-block">
                 This is what I just typed - awesome
             </div>
         </div>
 
-        <div class="container-block annotation-block first-block" id="annotation-container">
-            <div class="annotation new-annotation">
+        <div class="container-block annotation-block first-block">
+            <div class="annotation new-annotation" id="blue-block">
                 Great song selection - love it!
-<!--
-        <div class="container-block annotation-block">
-            <div class="annotation new-annotation" id="footnotes">
-            </div>
-            <div class="annotation new-annotation" id="green_footnotes" style="visibility:hidden">
--->
             </div>
         </div>
 
         <form class="container-block comment-block" id="new-comment">
             <textarea id="comment-input" name="comment-input" autofocus rows="3" placeholder="Enter your annotation..." wrap></textarea>
         </form>
-        
-         <div class="container-block annotation-block" id="annotation-container">
-            <div class="annotation old-annotation">
-                Jim is speaking too quietly here
-                <span class="time-created">at <a href="#">0:28</a></span>
-            </div>
-            <div class="annotation old-annotation">
-                Did not like the camera switch - stick to angle A
-                <span class="time-created">at <a href="#">3:40</a></span>
-            </div>
+
+        <div class="container-block annotation-block first-block" id="annotation-container">
         </div>
+
+        
 
         <!-- This div is a container inside which each annotation block will be spawned via jQuery -->
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/vendor/popcorn.js"></script>
+        <script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/vendor/video.min.js"></script>
         <script src="js/main.js"></script>
