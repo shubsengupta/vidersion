@@ -1,5 +1,5 @@
 # Vidersion - Inline contextual commenting on videos
 
-This application was poorly named, but was the inspiration for https://vidhub.co :) This project will remain here for sappy memories and sentimental value.
+This application (with a terrible name) is an inline annotation and discussion tool for videos. Originally created in a sleepless weekend at the Canadian Undergraduate Tech Conference's Hackathon (CUTC Infect), it was the pre-MVP for what later became https://vidhub.co
 
-### This project was built in one weekend at Canadian Undergraduate Tech Conference's Hackathon
+### This project was created entirely during a weekend hackathon
